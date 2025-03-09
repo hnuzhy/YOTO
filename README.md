@@ -12,8 +12,8 @@ Code for my paper "*You Only Teach Once: Learn One-Shot Bimanual Robotic Manipul
 ## ● Inference Visualization
 
 * Below, we present some prediction results comparison of trained models with / without using augmentation for each task.
-* We use $$\color{green}green$$ point clouds to represent the platform (which does not appear in the observation input) for easy visualization, and $$\color{magenta}magenta$$ to represent the point clouds of the manipulated objects. The $$\color{blue}blue$$ and $$\color{red}red$$ colored 6-DoF keyposes represent the end-effector actions of the left and right arms, respectively. The far left and far right keyposes are initial robot states. The ground-truth 6-DoF keyposes have larger size than those predicted actions.
 * *It can be clearly seen that the augmented data can make the model prediction error significantly smaller.* More videos and illustrations can be found in our [homepage](https://hnuzhy.github.io/projects/YOTO/).
+* Specifically, we use $$\color{green}green$$ point clouds to represent the platform (which does not appear in the observation input) for easy visualization, and $$\color{magenta}magenta$$ to represent the point clouds of the manipulated objects. The $$\color{blue}blue$$ and $$\color{red}red$$ colored 6-DoF keyposes represent the end-effector actions of the left and right arms, respectively. The far left and far right keyposes are initial robot states. The ground-truth 6-DoF keyposes have larger size than those predicted actions.
 
 <table>
   <tr>
