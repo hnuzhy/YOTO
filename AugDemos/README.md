@@ -55,15 +55,15 @@ Before running, you can also adjust many useful parameters in this script.
   </tr>
   <tr>
     <td><img src="./materials/aug_pcd_drawer_rgbs.jpg" height="280"></td>
-    <td><img src="./materials/aug_pcd_drawer_pcds.mp4" height="280"></td> 
+    <td><img src="./materials/aug_pcd_drawer_pcds.gif" height="280"></td> 
   </tr>
   <tr>
     <td><img src="./materials/aug_pcd_pouring_rgbs.jpg" height="280"></td>
-    <td><img src="./materials/aug_pcd_pouring_pcds.mp4" height="280"></td> 
+    <td><img src="./materials/aug_pcd_pouring_pcds.gif" height="280"></td> 
   </tr>
   <tr>
     <td><img src="./materials/aug_pcd_uncover_rgbs.jpg" height="280"></td>
-    <td><img src="./materials/aug_pcd_uncover_pcds.mp4" height="280"></td> 
+    <td><img src="./materials/aug_pcd_uncover_pcds.gif" height="280"></td> 
   </tr>
 </table>
 
