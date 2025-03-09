@@ -67,8 +67,6 @@ $ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/pro
 ```
 
 * Below, we present some prediction results comparison of trained models with / without using augmentation for each task. More details of visualization can be found in file [infer.py](https://github.com/hnuzhy/YOTO/blob/main/BiDP/infer.py). 
-* *It can be clearly seen that the augmented data can make the model prediction error significantly smaller.*
-* Specifically, we use $$\color{green}green$$ point clouds to represent the platform (which does not appear in the observation input) for easy visualization, and $$\color{magenta}magenta$$ to represent the point clouds of the manipulated objects. The $$\color{blue}blue$$ and $$\color{red}red$$ colored 6-DoF keyposes represent the end-effector actions of the left and right arms, respectively. The far left and far right keyposes are initial robot states. The ground-truth 6-DoF keyposes have larger size than those predicted actions.
 
 <table>
   <tr>
@@ -102,3 +100,7 @@ $ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/pro
     <td><img src="./materials/BiDP_infer_demo1_openbox_withaug.gif" height="280"></td> 
   </tr>
 </table>
+
+* *It can be clearly seen that the augmented data can make the model prediction error significantly smaller.*
+* Specifically, we use $$\color{green}green$$ point clouds to represent the platform (which does not appear in the observation input) for easy visualization, and $$\color{magenta}magenta$$ to represent the point clouds of the manipulated objects. The $$\color{blue}blue$$ and $$\color{red}red$$ colored 6-DoF keyposes represent the end-effector actions of the left and right arms, respectively. The far left and far right keyposes are initial robot states. The ground-truth 6-DoF keyposes have larger size than those predicted actions.
+
