@@ -47,7 +47,7 @@ $ python train.py --config-name basic prefix=bidp_openbox_withaug agent.agent_na
 ```
 
 ## Inference
-* You can simply conduct `bash run_withaug.sh` and `bash run_noaug.sh` for fast testing. Or you can test one specific task as follows.
+* You can simply conduct `bash run_withaug.sh` and `bash run_noaug.sh` for fast testing. Or you can test one specific task as follows. All of our pretrained models have been uploaded to [huggingface/YOTO](https://huggingface.co/HoyerChou/YOTO/tree/main).
 * For testing on the training dataset (with augmentation)
 ```python
 $ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_drawer_withaug/ckpt00499.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=drawer model.pred_horizon=12 data.dataset.is_transformed=0
