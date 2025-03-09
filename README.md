@@ -11,7 +11,7 @@ Code for my paper "*You Only Teach Once: Learn One-Shot Bimanual Robotic Manipul
 
 ## ● Inference Visualization
 
-* Below, we present some prediction results comparison of trained models with / without augmentation for each task.
+* Below, we present some prediction results of trained models with / without augmentation for comparison.
 
 <table>
   <tr>
