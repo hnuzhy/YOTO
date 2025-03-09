@@ -3,8 +3,8 @@
 
 <table>
 <tr>
-<th> drawer task (BiDP no augmentation) </th>
-<th> drawer task (BiDP with augmentation) </th>
+<th> <strong>drawer</strong> task (BiDP no augmentation) </th>
+<th> <strong>drawer</strong> task (BiDP with augmentation) </th>
 </tr>
 <tr>
 <td><img src="./materials/BiDP_infer_demo1_drawer_noaug.gif" height="270"></td>
