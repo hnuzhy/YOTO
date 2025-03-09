@@ -1,0 +1,90 @@
+
+EquiBot: SIM(3)-Equivariant Diffusion Policy for Generalizable and Data Efficient Learning
+https://equi-bot.github.io/
+https://github.com/yjy0625/equibot
+https://arxiv.org/abs/2407.01479
+
+######################################################################################
+##### [training 1] begin to run the modified BiDP
+######################################################################################
+
+
+################################################################################################################################
+$ conda activate embodychain
+*********************************************************************
+##### without augmentations (batch_size 16, num_epochs 2000/4000)
+# drawer (243 demos) --> [2025-01-13 23:06:21] taking about 01 hours 21 minutes
+$ python train.py --config-name basic prefix=bidp_drawer_noaug agent.agent_name=equibot env.env_class=drawer data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=drawer data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=2000
+
+# pouring (162 demos) --> [2025-01-14 12:25:05] taking about 00 hours 58 minutes
+$ python train.py --config-name basic prefix=bidp_pouring_noaug agent.agent_name=equibot env.env_class=pouring data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=pouring data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=2000
+
+# unscrew (54 demos) --> [2025-01-14 15:59:49] taking about 00 hours 42 minutes
+$ python train.py --config-name basic prefix=bidp_unscrew_noaug agent.agent_name=equibot env.env_class=unscrew data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=unscrew data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=4000
+
+# uncover (45 demos) --> [2025-01-14 16:44:32] taking about 00 hours 36 minutes
+$ python train.py --config-name basic prefix=bidp_uncover_noaug agent.agent_name=equibot env.env_class=uncover data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=uncover data.dataset.is_augmented=0 model.pred_horizon=24 training.batch_size=16 training.num_epochs=4000
+
+# openbox (36 demos) --> [2025-01-14 18:06:32] taking about 00 hours 35 minutes
+$ python train.py --config-name basic prefix=bidp_openbox_noaug agent.agent_name=equibot env.env_class=openbox data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=openbox data.dataset.is_augmented=0 model.pred_horizon=32 training.batch_size=16 training.num_epochs=4000
+
+*********************************************************************
+##### with augmentations (batch_size 16 --> 64, num_epochs 2000/4000 --> 500/1000)
+# drawer (243 demos * 100) --> [2025-01-14 22:00:33] taking about 17 hours 27 minutes
+$ python train.py --config-name basic prefix=bidp_drawer_withaug agent.agent_name=equibot env.env_class=drawer data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=drawer data.dataset.is_augmented=1 model.pred_horizon=12 training.batch_size=64 training.num_epochs=500 data.dataset.num_workers=8
+
+# pouring (162 demos * 100) --> [2025-01-15 16:03:43] taking about 10 hours 47 minutes
+$ python train.py --config-name basic prefix=bidp_pouring_withaug agent.agent_name=equibot env.env_class=pouring data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=pouring data.dataset.is_augmented=1 model.pred_horizon=12 training.batch_size=64 training.num_epochs=500 data.dataset.num_workers=8
+
+# unscrew (54 demos * 100) --> [2025-01-16 07:22:43] taking about 07 hours 15 minutes
+$ python train.py --config-name basic prefix=bidp_unscrew_withaug agent.agent_name=equibot env.env_class=unscrew data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=unscrew data.dataset.is_augmented=1 model.pred_horizon=12 training.batch_size=64 training.num_epochs=1000 data.dataset.num_workers=8
+
+# uncover (45 demos * 100) --> [2025-01-16 15:17:52] taking about 06 hours 51 minutes
+$ python train.py --config-name basic prefix=bidp_uncover_withaug agent.agent_name=equibot env.env_class=uncover data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=uncover data.dataset.is_augmented=1 model.pred_horizon=24 training.batch_size=64 training.num_epochs=1000 data.dataset.num_workers=8
+
+# openbox (36 demos * 100) --> [2025-01-16 22:10:41] taking about 05 hours 49 minutes
+$ python train.py --config-name basic prefix=bidp_openbox_withaug agent.agent_name=equibot env.env_class=openbox data.dataset.path=/home/dex/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=openbox data.dataset.is_augmented=1 model.pred_horizon=32 training.batch_size=64 training.num_epochs=1000 data.dataset.num_workers=8
+
+
+################################################################################################################################
+$ conda activate embodychain
+*********************************************************************
+# for test on the training dataset (with augmentation)
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_drawer_withaug/ckpt00499.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=drawer model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_pouring_withaug/ckpt00499.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=pouring model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_unscrew_withaug/ckpt00999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=unscrew model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_uncover_withaug/ckpt00999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=uncover model.pred_horizon=24 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_openbox_withaug/ckpt00999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=openbox model.pred_horizon=32 data.dataset.is_transformed=0
+
+# for test on the training dataset (without augmentation)
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_drawer_noaug/ckpt01999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=drawer model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_pouring_noaug/ckpt01999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=pouring model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_unscrew_noaug/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=unscrew model.pred_horizon=12 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_uncover_noaug/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=uncover model.pred_horizon=24 data.dataset.is_transformed=0
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_openbox_noaug/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=openbox model.pred_horizon=32 data.dataset.is_transformed=0
+
+
+################################################################################################################################
+$ conda activate embodychain
+*********************************************************************
+[training]
+##### without augmentations + robot2camera transform (batch_size 16, num_epochs 2000/4000)
+# drawer (243 demos) --> [2025-02-19 19:48:56] taking about 01 hours 46 minutes
+$ python train.py --config-name basic prefix=bidp_drawer_noaug_trans agent.agent_name=equibot env.env_class=drawer data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=drawer data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=2000 data.dataset.is_transformed=
+# pouring (162 demos) --> [2025-02-20 00:06:24] taking about 01 hours 15 minutes
+$ python train.py --config-name basic prefix=bidp_pouring_noaug_trans agent.agent_name=equibot env.env_class=pouring data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=pouring data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=2000 data.dataset.is_transformed=1
+# unscrew (54 demos) --> [2025-02-20 01:21:00] taking about 00 hours 52 minutes
+$ python train.py --config-name basic prefix=bidp_unscrew_noaug_trans agent.agent_name=equibot env.env_class=unscrew data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=unscrew data.dataset.is_augmented=0 model.pred_horizon=12 training.batch_size=16 training.num_epochs=4000 data.dataset.is_transformed=1
+# uncover (45 demos) --> [2025-02-20 02:14:00] taking about 00 hours 46 minutes
+$ python train.py --config-name basic prefix=bidp_uncover_noaug_trans agent.agent_name=equibot env.env_class=uncover data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=uncover data.dataset.is_augmented=0 model.pred_horizon=24 training.batch_size=16 training.num_epochs=4000 data.dataset.is_transformed=1
+# openbox (36 demos) --> [2025-02-20 03:00:00] taking about 00 hours 47 minutes
+$ python train.py --config-name basic prefix=bidp_openbox_noaug_trans agent.agent_name=equibot env.env_class=openbox data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset data.dataset.task_name=openbox data.dataset.is_augmented=0 model.pred_horizon=32 training.batch_size=16 training.num_epochs=4000 data.dataset.is_transformed=1
+
+[testing]
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_drawer_noaug_trans/ckpt01999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=drawer model.pred_horizon=12 data.dataset.is_transformed=1
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_pouring_noaug_trans/ckpt01999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=pouring model.pred_horizon=12 data.dataset.is_transformed=1
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_unscrew_noaug_trans/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=unscrew model.pred_horizon=12 data.dataset.is_transformed=1
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_uncover_noaug_trans/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=uncover model.pred_horizon=24 data.dataset.is_transformed=1
+$ python infer.py --config-name basic training.ckpt=/home/dexforce/zhouhuayi/projects/BiDP/logs/train/bidp_openbox_noaug_trans/ckpt03999.pth data.dataset.path=/home/dexforce/zhouhuayi/projects/BiDP/dataset agent.agent_name=equibot env.env_class=openbox model.pred_horizon=32 data.dataset.is_transformed=1
+################################################################################################################################
+
