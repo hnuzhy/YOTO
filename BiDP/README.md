@@ -7,7 +7,7 @@
 <th> drawer task (BiDP with augmentation) </th>
 </tr>
 <tr>
-<td><img src="./test/drawer/demo_notrans_noaug_id/BiDP_infer_demo1.mp4" height="270"></td>
-<td><img src="./test/drawer/demo_notrans_withaug_id/BiDP_infer_demo1.mp4" height="270"></td> 
+<td><img src="./materials/BiDP_infer_demo1_drawer_noaug.gif" height="270"></td>
+<td><img src="./materials/BiDP_infer_demo1_drawer_withaug.gif" height="270"></td> 
 </tr>
 </table>
