@@ -42,7 +42,7 @@ Before running, you can adjust many useful parameters in this script. If you can
 ```
 python aug_dataset_v2.py
 ```
-Before running, you can also adjust many useful parameters in this script.
+Before running, you can also adjust many useful parameters in this script. We have also uploaded our pre-processed jsons (`drawer_preprocessed_aug100x_*.json`, `pouring_preprocessed_aug100x_*.json`, `unscrew_preprocessed_aug100x.json`, `uncover_preprocessed_aug100x.json` and `openbox_preprocessed_aug100x.json`) in [huggingface/YOTO](https://huggingface.co/HoyerChou/YOTO/tree/main) for training.
 * [`debug_flag`](https://github.com/hnuzhy/YOTO/blob/main/AugDemos/aug_dataset_v2.py#L431): whether using the debug mode to checking pre-processed results, such as matching effect, object masks and segmented object point clouds.
 * [`aug_times`](https://github.com/hnuzhy/YOTO/blob/main/AugDemos/aug_dataset_v2.py#L432): set the augmentation times for each single demonstration. We can set it as `1 / 5 / 25 / 100 / 500`. And we have valided that set it as `100` is good enough.
 * [`left_pts_num`](https://github.com/hnuzhy/YOTO/blob/main/AugDemos/aug_dataset_v2.py#L433): set the left points number in manipulated object point clouds. We can set it as `32768 / 16384 / 8192 / 4096 / 2048`. In fact, we don’t need to set it too large, because the number of points when sampling objects during training is generally `1024 or 2048`. We set its as `4096` in our 100x augmentation for saving space of final pre-processed results. 
