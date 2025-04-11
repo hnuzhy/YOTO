@@ -1,6 +1,7 @@
 # YOTO
 Code for my paper "*You Only Teach Once: Learn One-Shot Bimanual Robotic Manipulation from Video Demonstrations*" [[arXiv](https://arxiv.org/abs/2501.14208)] / [[Project](https://hnuzhy.github.io/projects/YOTO/)] / [[Dataset](https://huggingface.co/HoyerChou/YOTO)]
 
+- :white_check_mark: [**2025-04-11**] Our paper has been accepted by conference **RSS 2025** ([Robotics: Science and Systems](https://roboticsconference.org/)).
 - :white_check_mark: [**2025-03-10**] We have uploaded our preprocessed datasets and pretrained models in [huggingface/YOTO](https://huggingface.co/HoyerChou/YOTO). Please refer [AugDemos](https://github.com/hnuzhy/YOTO/tree/main/AugDemos) and [BiDP](https://github.com/hnuzhy/YOTO/tree/main/BiDP) under this repo for the usage of them.
 
 ***
