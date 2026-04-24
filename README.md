@@ -1,6 +1,7 @@
 # YOTO
 Code for my paper "*You Only Teach Once: Learn One-Shot Bimanual Robotic Manipulation from Video Demonstrations*" [[arXiv](https://arxiv.org/abs/2501.14208)] / [[Project](https://hnuzhy.github.io/projects/YOTO/)] / [[Dataset](https://huggingface.co/HoyerChou/YOTO)]
 
+- :white_check_mark: [**2026-04-24**] Our extended work [YOTO++](https://hnuzhy.github.io/projects/YOTOPlus/) based on the conference **YOTO** has been accepted by [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34).
 - :white_check_mark: [**2025-07-05**] The extended journal version [YOTO++: Learning Long-Horizon Closed-Loop Bimanual Manipulation from One-Shot Human Video Demonstrations](https://hnuzhy.github.io/projects/YOTOPlus/) with more new content has been released.
 - :white_check_mark: [**2025-06-12**] I have built a summary page of latest related works on [Robot Manipulation - Vision Language Action](https://github.com/hnuzhy/RobotManipulation/blob/main/Vision_Language_Action.md). Welcome to read and communicate! 
 - :white_check_mark: [**2025-04-11**] Our paper has been accepted by conference **RSS 2025** ([Robotics: Science and Systems](https://roboticsconference.org/)).
