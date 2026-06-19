@@ -66,4 +66,12 @@ If you use our code or models in your research, please cite with:
   journal={arXiv preprint arXiv:2501.14208},
   year={2025}
 }
+
+@article{zhou2026yoto,
+  title={YOTO++: Learning Long-Horizon Closed-Loop Bimanual Manipulation from One-Shot Human Video Demonstrations},
+  author={Zhou, Huayi and Wang, Ruixiang and Tai, Yunxin and Deng, Yueci and Liu, Guiliang and Jia, Kui},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2026},
+  publisher={IEEE}
+}
 ```
